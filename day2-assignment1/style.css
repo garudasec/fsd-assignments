@@ -1,0 +1,26 @@
+.container{
+    width: 80%;
+    margin: 50px auto;
+}
+
+.row1, .row2{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.row1>div, .row2>div{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+img{
+    width: 100%;
+}
+
+button{
+    border: none;
+    background-color: aqua;
+    font-size: 1em;
+    padding: 10px 15px;
+}

@@ -21,11 +21,12 @@ h1 {
   height: 60px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin: auto;
-  margin: 15px auto;
+  margin: 15px;
   border-radius: 12px;
+  font-size: 300%;
 }
 
-#keys {
+#keyboard {
   width: 450px;
   height: 350px;
   margin: auto;
@@ -34,7 +35,7 @@ h1 {
   gap: 10px;
 }
 
-#keys > div {
+#keyboard > div {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding-top: 25px;
   font-size: 20px;
@@ -52,7 +53,7 @@ h1 {
   color: white;
 }
 
-#keys > div:hover {
+#keyboard > div:hover {
   cursor: pointer;
   background-color: #d997e7;
 }

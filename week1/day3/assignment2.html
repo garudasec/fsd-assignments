@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #ffffff;
+            margin: 0;
+        }
+
+        .keyboard {
+            width: 950px;
+            padding: 15px;
+            background: #ffffff;
+            border: 1px solid #dbdbdb;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .row:last-child {
+            margin-bottom: 0;
+        }
+
+        .row>div {
+            height: 52px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #ffffff 0%, #f2f2f5 100%);
+            border: 1px solid #d1d1d6;
+            border-radius: 6px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #3a3a3c;
+            cursor: pointer;
+            box-shadow:
+                0 1px 0px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            transition: all 0.1s ease;
+        }
+
+        .shift {
+            grid-column: span 2;
+        }
+
+        #space {
+            grid-column: span 3;
+            font-weight: bold;
+            color: #1c1c1e;
+        }
+
+        .enter,
+        .delete,
+        .shift,
+        #space {
+            font-weight: bold;
+        }
+
+        .tab,
+        .caps {
+            text-transform: lowercase;
+        }
+
+        .row>div:hover {
+            background: linear-gradient(to bottom, #ffffff 0%, #e5e5ea 100%);
+            border-color: #b5b5b9;
+        }
+
+        .row>div:active {
+            transform: translateY(1px);
+            background: #e5e5ea;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="keyboard">
+
+        <div class="row" id="r1">
+            <div>-</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>0</div>
+            <div class="delete">Delete</div>
+        </div>
+
+        <div class="row" id="r2">
+            <div class="tab">Tab</div>
+            <div>Q</div>
+            <div>W</div>
+            <div>E</div>
+            <div>R</div>
+            <div>T</div>
+            <div>Y</div>
+            <div>U</div>
+            <div>I</div>
+            <div>O</div>
+            <div>P</div>
+            <div>\</div>
+        </div>
+
+        <div class="row" id="r3">
+            <div class="caps">Caps</div>
+            <div>A</div>
+            <div>S</div>
+            <div>D</div>
+            <div>F</div>
+            <div>G</div>
+            <div>H</div>
+            <div>J</div>
+            <div>K</div>
+            <div>L</div>
+            <div>;</div>
+            <div>'</div>
+            <div class="enter">Enter</div>
+        </div>
+
+        <div class="row" id="r4">
+            <div class="shift">Shift</div>
+            <div>Z</div>
+            <div>X</div>
+            <div>C</div>
+            <div>V</div>
+            <div>B</div>
+            <div>N</div>
+            <div>M</div>
+            <div>,</div>
+            <div>.</div>
+            <div class="shift">Shift</div>
+        </div>
+
+        <div class="row" id="r5">
+            <div class="windows">Windows</div>
+            <div>Ctrl</div>
+            <div>Options</div>
+            <div>Alt</div>
+            <div id="space">SPACE</div>
+            <div>Alt</div>
+            <div>Option</div>
+            <div>&lt;</div>
+            <div>&gt;</div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

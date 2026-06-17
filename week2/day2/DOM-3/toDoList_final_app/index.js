@@ -30,9 +30,9 @@ function getDetails(e) {
   //agar key,value name same hai to aisi likh sakte hai!
   let taskObj = { name, priority };
   todoArr.push(taskObj);
-  console.log(todoArr);
-
   localStorage.setItem("todo", JSON.stringify(todoArr));
+  displayTable(todoArr);
+  document.querySelector("form").reset();
 
   // hume ye karna hai..
   // <tr>
@@ -58,7 +58,7 @@ function displayTable(arr) {
     td2.innerText = el.priority;
 
     const td3 = document.createElement("button");
-    td3.innerText = "add";
+    td3.innerText = "⭐ Add";
 
     td3.addEventListener("click", function() {
       favArr.push(el);

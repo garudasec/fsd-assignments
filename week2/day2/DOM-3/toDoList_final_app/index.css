@@ -1,93 +1,257 @@
+/* ===========================================================
+   Hospital App — Modern Dark Medical Dashboard Theme
+   =========================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
 
-div {
-  display: flex;
-  justify-content: space-around;
-}
-form {
-  margin: 0 auto;
-  margin-top: 50px;
-  width: 30%;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  padding: 30px;
-}
-
-
-
-label {
-  font-size: 20px;
-}
-
-table {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 60%;
-  margin: auto;
-  margin-top: 50px;
-  text-align: center;
-}
-
-table td,
-table th {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: center;
-}
-
-table tr:nth-child(even) {
-  background-color: #8caacf;
-}
-
-table tr:hover {
-  background-color: #ddd;
-}
-
-table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #0468aa;
-  color: white;
-  text-align: center;
+:root {
+  --bg-main: #131A21;
+  --bg-card: #1B2430;
+  --bg-input: #242F41;
+  --text-main: #FFFFFF;
+  --text-muted: #8A99AD;
+  --accent-primary: #38BDF8; /* Radiant Teal/Blue */
+  --accent-hover: #0EA5E9;
+  --accent-danger: #EF4444; /* Clean Red for Delete */
+  --accent-danger-hover: #DC2626;
+  --border-color: rgba(255, 255, 255, 0.08);
 }
 
 * {
   box-sizing: border-box;
 }
 
-input[type="text"],
-select,
-textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
-
-input[type="submit"] {
-  background-color: #2b619e;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  width: 100%;
-  font-size: 20px;
-}
-
-input[type="submit"]:hover {
-  background-color: #3973b6;
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px;
 }
 
 h1 {
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin: 0 0 32px;
   text-align: center;
-  font-size: 50px;
+}
+
+/* ===========================================================
+   MAIN LAYOUT CONTAINER
+   =========================================================== */
+
+div {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  max-width: 1240px;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-color);
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* ===========================================================
+   FORM SECTION (LEFT)
+   =========================================================== */
+
+form {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+br {
+  display: none;
+}
+
+label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
-  font-family: monospace;
-  color: #2b619e;
-  text-decoration: underline;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+/* Targeting all input fields and the select box universally */
+input[type="text"],
+input[type="number"],
+select {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text-main);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%238A99AD' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+input::placeholder {
+  color: #52647C;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+/* Submit Button Layout Fix */
+input[type="submit"] {
+  width: 100%; /* Spans full width of form container */
+  margin-top: 8px;
+  padding: 14px;
+  background: var(--accent-primary);
+  color: var(--bg-main);
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+input[type="submit"]:hover {
+  background: var(--accent-hover);
+}
+
+input[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+/* ===========================================================
+   TABLE SECTION (RIGHT)
+   =========================================================== */
+
+table {
+  flex: 1;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  border-bottom: 2px solid var(--border-color);
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+td {
+  padding: 16px;
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+/* Table styling updates for specific columns */
+td:nth-child(1) {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+td:nth-child(2) {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--accent-primary);
+}
+
+/* Modernized Delete Actions Button */
+tbody button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 6px;
+  color: var(--accent-danger);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Heart pseudo-element removed entirely */
+tbody button::before {
+  content: none !important;
+}
+
+tbody button:hover {
+  background: var(--accent-danger);
+  color: #FFFFFF;
+  border-color: var(--accent-danger-hover);
+}
+
+/* Accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* ===========================================================
+   MOBILE RESPONSIVE
+   =========================================================== */
+
+@media (max-width: 1024px) {
+  div {
+    flex-direction: column;
+    gap: 32px;
+    padding: 24px;
+  }
+
+  form {
+    flex: none;
+    width: 100%;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto; /* Handles horizontal table scrolling elegantly on small screens */
+    white-space: nowrap;
+  }
 }

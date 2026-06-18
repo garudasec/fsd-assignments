@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #111827;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            color: #00ff88;
+            font-size: 4rem;
+            letter-spacing: 5px;
+            padding: 20px 40px;
+            border: 3px solid #00ff88;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #00ff88;
+        }
+    </style>
+</head>
+
+<body>
+    <h1></h1>
+
+    <script>
+        let h1 = document.querySelector("h1");
+        // document.querySelector("body").append(h1);
+
+        setInterval(() => {
+            let currentTime = new Date();
+            // console.log(currentTime);
+
+            let hours = currentTime.getHours();
+            let minutes = currentTime.getMinutes();
+            let seconds = currentTime.getSeconds();
+
+            // let time = `${hours} : ${mintues} : ${seconds}`
+            let time =
+                hours >= 12
+                    ? `${hours} : ${minutes} : ${seconds} PM`
+                    : `${hours} : ${minutes} : ${seconds} AM`;
+
+            h1.innerText = time;
+            // console.log((h1.innerText = time));
+        }, 1000);
+
+    </script>
+</body>
+
+</html>

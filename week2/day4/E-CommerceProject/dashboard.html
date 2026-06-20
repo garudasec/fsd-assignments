@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Naptol</title>
+
+  <script>
+    (function () {
+      if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+  <div id="navbar-root"></div>
+
+  <h1 class="page-title">Dashboard</h1>
+  <p class="page-subtitle">A quick snapshot of activity across the store.</p>
+
+  <div class="container">
+    <div class="stat-grid" id="statGrid"></div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/dashboard.js"></script>
+
+</body>
+</html>

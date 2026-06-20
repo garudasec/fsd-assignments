@@ -4,20 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slideshow Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="slideshow-container">
-        <h1>Slideshow Project</h1>
-        
-        <img src="" alt="Slideshow Image Preview">
-        
+        <div class="header-row">
+            <h1>Slideshow Project</h1>
+            <span class="counter" id="counter">1 / 20</span>
+        </div>
+
+        <div class="carousel">
+            <div class="carousel-track" id="track">
+
+            </div>
+
+            <button id="previous" class="arrow-btn arrow-btn--prev" aria-label="Previous slide">&#8249;</button>
+            <button id="next" class="arrow-btn arrow-btn--next" aria-label="Next slide">&#8250;</button>
+        </div>
+
         <div class="controls">
-            <button id="previous">Previous</button>
-            <button id="start">Start</button>
-            <button id="stop">Stop</button>
-            <button id="next">Next</button>
+            <button id="start" class="btn btn--primary">Start</button>
+            <button id="stop" class="btn btn--danger">Stop</button>
         </div>
     </div>
 

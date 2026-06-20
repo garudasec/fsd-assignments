@@ -1,3 +1,4 @@
+// 20 dummy images
 let images = [
   "https://picsum.photos/800/400?random=1",
   "https://picsum.photos/800/400?random=2",
@@ -22,62 +23,77 @@ let images = [
 ];
 
 let currentIndex = 0;
-let img = document.querySelector("img");
+let track = document.querySelector("#track");
 let startBtn = document.querySelector("#start");
 let stopBtn = document.querySelector("#stop");
 let previousBtn = document.querySelector("#previous");
 let nextBtn = document.querySelector("#next");
+let counterEl = document.querySelector("#counter");
+let slider = null; // holds the setInterval id for autoplay
 
-img.src = images[currentIndex];
+images.forEach((src) => {
+  let slide = document.createElement("div");
+  slide.classList.add("carousel-slide");
 
-let slider = setInterval(() => {
+  let imgEl = document.createElement("img");
+  imgEl.src = src;
+  imgEl.alt = "Slideshow Image";
+
+  slide.appendChild(imgEl);
+  track.appendChild(slide);
+});
+
+function goToSlide(index) {
+  track.style.transform = `translateX(-${index * 100}%)`;
+  counterEl.textContent = `${index + 1} / ${images.length}`;
+}
+
+function showNext() {
   currentIndex++;
-
   if (currentIndex === images.length) {
     currentIndex = 0;
   }
+  goToSlide(currentIndex);
+}
 
-  img.src = images[currentIndex]
-}, 2000);
-
-stopBtn.addEventListener("click", function () {
-  clearInterval(slider);
-});
-
-startBtn.addEventListener("click", function () {
-  clearInterval(slider);
-
-  slider = setInterval(() => {
-    currentIndex++;
-
-    if (currentIndex === images.length) {
-      currentIndex = 0;
-    }
-
-    img.src = images[currentIndex];
-  }, 2000);
-});
-
-nextBtn.addEventListener("click", () => {
-  clearInterval(slider);
-
-  currentIndex++;
-
-  if (currentIndex === images.length) {
-    currentIndex = 0;
-  }
-
-  img.src = images[currentIndex];
-});
-
-previousBtn.addEventListener("click", () => {
-  clearInterval(slider);
-
+function showPrevious() {
   currentIndex--;
-
   if (currentIndex < 0) {
     currentIndex = images.length - 1;
   }
+  goToSlide(currentIndex);
+}
 
-  img.src = images[currentIndex];
+function startAutoSlide() {
+  clearInterval(slider);
+  slider = setInterval(showNext, 2000);
+}
+
+function stopAutoSlide() {
+  clearInterval(slider);
+  slider = null;
+}
+
+// Show first slide and start playing automatically on page load
+goToSlide(currentIndex);
+startAutoSlide();
+
+stopBtn.addEventListener("click", function () {
+  stopAutoSlide();
+});
+
+startBtn.addEventListener("click", function () {
+  startAutoSlide();
+});
+
+// Clicking next/previous stops the autoplay and behaves like a
+// normal manual slider, as required by the assignment.
+nextBtn.addEventListener("click", () => {
+  stopAutoSlide();
+  showNext();
+});
+
+previousBtn.addEventListener("click", () => {
+  stopAutoSlide();
+  showPrevious();
 });

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Naptol</title>
+
+  <script>
+    (function () {
+      if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    .success-banner {
+      display: none;
+      background: var(--success-soft);
+      color: var(--success);
+      border: 1px solid var(--success);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3) var(--space-4);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+    }
+    .success-banner.show { display: block; }
+  </style>
+</head>
+<body>
+
+  <div id="navbar-root"></div>
+
+  <h1 class="page-title">Contact Us</h1>
+  <p class="page-subtitle">Questions, feedback, or order issues — send us a message.</p>
+
+  <div class="form-card">
+    <div class="success-banner" id="contactSuccess">Your message has been sent. We'll get back to you soon.</div>
+
+    <form id="contactForm" novalidate>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input class="input" type="text" id="name" placeholder="Your name">
+        <div class="field-error" id="nameError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input class="input" type="email" id="email" placeholder="you@example.com">
+        <div class="field-error" id="emailError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="How can we help?"></textarea>
+        <div class="field-error" id="messageError"></div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+    </form>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/contact.js"></script>
+
+</body>
+</html>

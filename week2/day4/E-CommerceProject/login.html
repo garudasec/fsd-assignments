@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — Naptol</title>
+
+  <script>
+    (function () {
+      if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+  <div class="auth-shell">
+    <div class="auth-card">
+      <div class="auth-brand"><span class="nav-dot">●</span>&nbsp;Naptol</div>
+      <h1>Welcome Back</h1>
+      <p class="auth-subtitle">Login to your account</p>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input class="input" type="email" id="email" placeholder="Enter your email" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input class="input" type="password" id="password" placeholder="Enter your password" required minlength="6" autocomplete="current-password">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
+
+      <div class="auth-link">
+        Don't have an account? <a href="signup.html">Signup</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/login.js"></script>
+
+</body>
+</html>

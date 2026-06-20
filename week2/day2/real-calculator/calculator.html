@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <style>
+    * {
+      text-align: center;
+    }
+
+    h1 {
+      color: teal;
+    }
+
+    .calculator {
+      width: 500px;
+      height: 450px;
+      margin: auto;
+      margin-top: 50px;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    #input {
+      width: 450px;
+      height: 60px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      margin: auto;
+      margin: 15px;
+      border-radius: 12px;
+      font-size: 300%;
+    }
+
+    #keyboard {
+      width: 450px;
+      height: 350px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    #keyboard>div {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      padding-top: 25px;
+      font-size: 20px;
+      font-weight: 900;
+      border-radius: 12px;
+    }
+
+    .black {
+      background-color: black;
+      color: white;
+    }
+
+    .red {
+      background-color: red;
+      color: white;
+    }
+
+    #keyboard>div:hover {
+      cursor: pointer;
+      background-color: #d997e7;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="calculator">
+    <div id="input"></div>
+
+    <div id="keyboard">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>+</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div class="black">-</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+      <div class="black">*</div>
+      <div class="red">C</div>
+      <div>0</div>
+      <div>=</div>
+      <div class="black">/</div>
+    </div>
+  </div>
+
+
+  <script>
+    let bag = "";
+
+    // step-1 select/catch the element
+    const keys = document.querySelectorAll("#keyboard>div");
+    console.log(keys);
+
+    // step-2 attach event
+    for (let i = 0; i < keys.length; i++) {
+      // console.log(keys[i])
+      keys[i].addEventListener("click", myCalc);
+    }
+
+    // step-3 handle event
+
+    function myCalc(e) {
+      let targetNumber = e.target.innerText
+      // console.log(targetNumber);
+
+      const display = document.querySelector("#input");
+      // display.innerText = targetNumber
+
+      if (targetNumber == "C") {
+        bag = "";
+        display.innerText = bag;
+      }
+      else if (targetNumber == "=") {
+        let ans = eval(bag);
+        display.innerText = ans;
+      }
+      else {
+        bag += targetNumber;
+        display.innerText = bag;
+      }
+    }
+  </script>
+</body>
+
+</html>

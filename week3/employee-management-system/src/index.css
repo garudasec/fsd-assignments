@@ -1,0 +1,198 @@
+/* ============================================
+   Design Tokens — "Ledger" theme
+   Warm graphite + brass, paired serif/sans/mono
+   ============================================ */
+:root {
+  /* Sidebar / ink tones */
+  --ink-900: #1c1a17;
+  --ink-800: #262320;
+  --ink-700: #34302a;
+  --ink-on-ink-muted: #b9b2a4;
+  --ink-on-ink-faint: #847c6d;
+
+  /* Warm neutrals (content area) */
+  --color-bg: #faf8f4;
+  --color-surface: #ffffff;
+  --color-border: #e8e2d6;
+  --color-border-strong: #d6cdb9;
+  --color-text: #211f1c;
+  --color-text-muted: #6b6459;
+  --color-text-faint: #9c9483;
+
+  /* Brand accent — brass */
+  --color-primary: #a9791f;
+  --color-primary-dark: #845f17;
+  --color-primary-light: #f4ecd8;
+
+  /* Status */
+  --color-danger: #ab3e34;
+  --color-danger-light: #f8e9e6;
+  --color-success: #3f7355;
+
+  /* Department palette */
+  --dept-hr: #7a5980;
+  --dept-hr-bg: #efe6f0;
+  --dept-finance: #3f7355;
+  --dept-finance-bg: #e7f0ea;
+  --dept-marketing: #a9791f;
+  --dept-marketing-bg: #f4ecd8;
+  --dept-it: #3d6b8c;
+  --dept-it-bg: #e5eef3;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(28, 26, 23, 0.05);
+  --shadow-md: 0 6px 16px rgba(28, 26, 23, 0.07), 0 1px 2px rgba(28, 26, 23, 0.05);
+  --shadow-lg: 0 20px 40px rgba(28, 26, 23, 0.12);
+
+  /* Type */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+
+  /* Motion */
+  --transition-fast: 130ms ease;
+  --transition-base: 200ms ease;
+}
+
+/* ============================================
+   Reset
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  color: var(--color-text);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+
+/* ===========================
+   DARK THEME
+=========================== */
+
+.layout.dark {
+  --color-bg: #121212;
+  --color-surface: #1d1d1d;
+  --color-border: #333;
+  --color-border-strong: #444;
+
+  --color-text: #ffffff;
+  --color-text-muted: #c7c7c7;
+  --color-text-faint: #999;
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.35);
+  --shadow-md: 0 10px 20px rgba(0,0,0,.45);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,.6);
+}
+
+.layout.dark {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.layout.dark .main,
+.layout.dark .container,
+.layout.dark .panel,
+.layout.dark .stat-card,
+.layout.dark form,
+.layout.dark table,
+.layout.dark input,
+.layout.dark textarea,
+.layout.dark select{
+    background:var(--color-surface);
+    color:var(--color-text);
+}
+
+.layout.dark th{
+    background:#2a2a2a;
+}
+
+.layout.dark td{
+    border-color:#333;
+}
+
+.layout.dark input::placeholder,
+.layout.dark textarea::placeholder{
+    color:#888;
+}
+
+.layout.dark .sidebar{
+    background:#171717;
+}
+
+.layout.dark .topbar{
+    background:#171717;
+}
+
+
+.theme-btn{
+    padding:10px 18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:var(--color-primary);
+    color:white;
+    transition:.3s;
+}
+
+.theme-btn:hover{
+    opacity:.9;
+}
